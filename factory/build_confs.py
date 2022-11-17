@@ -2,7 +2,7 @@
 
 import re
 import time
-
+import requests
 
 # confs names in template/ and ../
 # except sr_head and sr_foot
@@ -22,7 +22,10 @@ confs_names = [
 
 def getRulesStringFromFile(path, kind):
     file = open(path, 'r', encoding='utf-8')
-    contents = file.readlines()
+    url='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/build/factory/'
+    r=requests.get(url+path)
+    contents = r.text.split('\n')
+    # contents = file.readlines()
     ret = ''
 
     for content in contents:
@@ -54,7 +57,7 @@ str_foot = open('template/sr_foot.txt', 'r', encoding='utf-8').read()
 # make values
 values = {}
 
-values['build_time'] = time.strftime("%Y-%m-%d %H:%M:%S")
+values['build_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time()+60*60*8)
 
 values['top500_proxy']  = getRulesStringFromFile('resultant/top500_proxy.list', 'Proxy')
 values['top500_direct'] = getRulesStringFromFile('resultant/top500_direct.list', 'Direct')
