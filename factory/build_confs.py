@@ -20,12 +20,15 @@ confs_names = [
 ]
 
 
-def getRulesStringFromFile(path, kind):
-    file = open(path, 'r', encoding='utf-8')
-    url='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/build/factory/'
-    r=requests.get(url+path)
-    contents = r.text.split('\n')
-    # contents = file.readlines()
+def getRulesStringFromFile(path, kind,getFromUrl=False):
+    if getFromUrl:
+        url='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/build/factory/'
+        r=requests.get(url+path)
+        contents = r.text.split('\n')
+        print('loading from Johnshall:'+path)
+    else:
+        file = open(path, 'r', encoding='utf-8')
+        contents = file.readlines()
     ret = ''
 
     for content in contents:
@@ -64,9 +67,9 @@ values['top500_direct'] = getRulesStringFromFile('resultant/top500_direct.list',
 
 values['ad'] = getRulesStringFromFile('resultant/ad.list', 'Reject')
 
-values['manual_direct'] = getRulesStringFromFile('manual_direct.txt', 'Direct')
-values['manual_proxy']  = getRulesStringFromFile('manual_proxy.txt', 'Proxy')
-values['manual_reject'] = getRulesStringFromFile('manual_reject.txt', 'Reject')
+values['manual_direct'] = getRulesStringFromFile('manual_direct.txt', 'Direct', True)
+values['manual_proxy']  = getRulesStringFromFile('manual_proxy.txt', 'Proxy', True)
+values['manual_reject'] = getRulesStringFromFile('manual_reject.txt', 'Reject', True)
 
 values['gfwlist'] = getRulesStringFromFile('resultant/gfw.list', 'Proxy') \
                   + getRulesStringFromFile('manual_gfwlist.txt', 'Proxy')
