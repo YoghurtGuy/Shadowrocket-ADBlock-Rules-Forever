@@ -57,7 +57,7 @@ str_foot = open('template/sr_foot.txt', 'r', encoding='utf-8').read()
 # make values
 values = {}
 
-values['build_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time()+60*60*8)
+values['build_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time()+60*60*8))
 
 values['top500_proxy']  = getRulesStringFromFile('resultant/top500_proxy.list', 'Proxy')
 values['top500_direct'] = getRulesStringFromFile('resultant/top500_direct.list', 'Direct')
