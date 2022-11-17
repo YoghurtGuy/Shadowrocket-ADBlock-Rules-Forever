@@ -21,6 +21,8 @@ rules_url = [
     'https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/rule.txt',
     # Peter Lowe 广告和隐私跟踪域名
     'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus;showintro=0',
+    # anti-AD广告规则
+    'https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt'
 ]
 
 rule = ''
@@ -100,7 +102,7 @@ for row in rule:
     row = re.sub(r':\d{2,5}$', '', row)  # 清除端口
 
     # 不能含有的字符
-    if re.search(r'[/^:*]', row):
+    if re.search(r'[/^:*#]', row):
         print('ignore: '+row0)
         continue
     
