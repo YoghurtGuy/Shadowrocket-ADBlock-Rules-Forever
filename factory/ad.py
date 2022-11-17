@@ -103,7 +103,7 @@ for row in rule:
 
     # 不能含有的字符
     if re.search(r'[/^:*#]', row):
-        print('ignore: '+row0)
+        # print('ignore: '+row0)
         continue
     
     # 去除 ignore 中的内容
