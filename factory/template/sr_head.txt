@@ -1,6 +1,6 @@
 # Best Shadowrocket Rules (https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 # by Moshel and Johnshall
-# build time: UTC {{build_time}}
+# build time: UTC/GMT+08:00 {{build_time}}
 
 [General]
 # 默认开启 ipv6 支持，如果需要请手动关闭
