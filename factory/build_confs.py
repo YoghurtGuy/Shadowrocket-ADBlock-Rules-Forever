@@ -27,8 +27,9 @@ def getRulesStringFromFile(path, kind,getFromUrl=False):
         contents = r.text.split('\n')
         print('loading from Johnshall:'+path)
     else:
-        file = open(path, 'r', encoding='utf-8')
-        contents = file.readlines()
+        contents =[]
+    file = open(path, 'r', encoding='utf-8')
+    contents += file.readlines()
     ret = ''
 
     for content in contents:
