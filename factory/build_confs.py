@@ -73,7 +73,7 @@ values['manual_proxy']  = getRulesStringFromFile('manual_proxy.txt', 'Proxy', Tr
 values['manual_reject'] = getRulesStringFromFile('manual_reject.txt', 'Reject', True)
 
 values['gfwlist'] = getRulesStringFromFile('resultant/gfw.list', 'Proxy') \
-                  + getRulesStringFromFile('manual_gfwlist.txt', 'Proxy')
+                  + getRulesStringFromFile('manual_gfwlist.txt', 'Proxy',True)
 
 
 # make confs
