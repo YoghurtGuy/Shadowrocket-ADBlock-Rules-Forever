@@ -21,15 +21,14 @@ confs_names = [
 
 
 def getRulesStringFromFile(path, kind,getFromUrl=False):
+    
+    file = open(path, 'r', encoding='utf-8')
+    contents = file.readlines()
     if getFromUrl:
         url='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/build/factory/'
         r=requests.get(url+path)
-        contents = r.text.split('\n')
+        contents += r.text.split('\n')
         print('loading from Johnshall:'+path)
-    else:
-        contents =[]
-    file = open(path, 'r', encoding='utf-8')
-    contents += file.readlines()
     ret = ''
 
     for content in contents:
