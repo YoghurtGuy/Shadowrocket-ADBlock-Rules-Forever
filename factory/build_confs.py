@@ -67,7 +67,7 @@ def getASNStringFromURL(url):
             ret += content + '\n'
         else:
             content.replace(r' //',',DIRECT #')
-            ret += prefix + ',%s\n' % (content)
+            ret += '%s\n' % (content)
     return ret
 
 
