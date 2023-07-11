@@ -2,9 +2,11 @@
 [URL Rewrite]
 ^https?://(www.)?(g|google)\.cn https://www.google.com 302
 
+[Script]
+EmbyPremiere = type=http-response,script-path=https://gitlab.com/iptv-org/embypublic/-/raw/master/Script/EmbyPremiere.js,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,max-size=131072,requires-body=true,timeout=10,enable=true
 
 [MITM]
-hostname = *.google.cn,*.googlevideo.com
+hostname = *.google.cn,*.googlevideo.com,mb3admin.com
 
 # By Moshel @ https://hzy.pw/
 # By Johnshall @ https://blog.metaphorme.net/
