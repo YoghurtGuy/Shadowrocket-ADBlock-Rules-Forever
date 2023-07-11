@@ -54,7 +54,7 @@ def getRulesStringFromFile(path, kind,getFromUrl=False):
 
 def getASNStringFromURL(url):
     r=requests.get(url)
-    contents += r.text.split('\n')
+    contents = r.text.split('\n')
     print('loading ASN from:'+url)
     ret = ''
 
