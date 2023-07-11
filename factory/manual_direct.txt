@@ -3,3 +3,5 @@
 #wechat
 wechat.com
 servicewechat.com
+byr.pt
+edu.cn
