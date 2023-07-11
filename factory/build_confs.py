@@ -50,6 +50,25 @@ def getRulesStringFromFile(path, kind,getFromUrl=False):
             ret += prefix + ',%s,%s\n' % (content, kind)
 
     return ret
+    
+
+def getASNStringFromURL(url):
+    r=requests.get(url)
+    contents += r.text.split('\n')
+    print('loading ASN from:'+url)
+    ret = ''
+
+    for content in contents:
+        content = content.strip('\r\n')
+        if not len(content):
+            continue
+
+        if content.startswith('#'):
+            ret += content + '\n'
+        else:
+            content.repalce(r' //',',DIRECT #')
+            ret += prefix + ',%s\n' % (content)
+    return ret
 
 
 # get head and foot
@@ -64,7 +83,7 @@ values['build_time'] = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(time.time(
 
 values['top500_proxy']  = getRulesStringFromFile('resultant/top500_proxy.list', 'Proxy')
 values['top500_direct'] = getRulesStringFromFile('resultant/top500_direct.list', 'Direct')
-
+values['ASN_direct'] = getASNStringFromURL('https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list')
 values['ad'] = getRulesStringFromFile('resultant/ad.list', 'Reject')
 
 values['manual_direct'] = getRulesStringFromFile('manual_direct.txt', 'Direct', True)
