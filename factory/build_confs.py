@@ -66,7 +66,7 @@ def getASNStringFromURL(url):
         if content.startswith('#'):
             ret += content + '\n'
         else:
-            content.repalce(r' //',',DIRECT #')
+            content.replace(r' //',',DIRECT #')
             ret += prefix + ',%s\n' % (content)
     return ret
 
