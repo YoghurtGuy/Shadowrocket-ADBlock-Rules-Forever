@@ -3,7 +3,7 @@
 ^https?://(www.)?(g|google)\.cn https://www.google.com.hk 302
 
 [Script]
-unlock_emby = type=http-response,script-path=https://cdn.jsdelivr.net/gh/YukiCoco/YukiUsefulTools@YukiCoco-patch-1/unlock_emby.js,pattern=^http(s?):\/\/(www\.|)mb3admin\.com\/.*$,max-size=131072,requires-body=true,timeout=10,debug=false,enable=true
+EmbyPremiere = type=http-response,script-path=https://gitlab.com/iptv-org/embypublic/-/raw/master/Script/EmbyPremiere.js,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,max-size=131072,requires-body=true,timeout=10,enable=true
 
 [MITM]
 hostname = *.google.cn,*.googlevideo.com,mb3admin.com,www.mb3admin.com 
