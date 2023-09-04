@@ -5,8 +5,8 @@
 
 
 {{manual_reject}}
+{{manual_direct}}
 
-{{ad}}
 DOMAIN-SUFFIX,byr.pt,DIRECT
 DOMAIN-SUFFIX,edu.cn,DIRECT
 IP-ASN,24369,DIRECT
@@ -17,5 +17,7 @@ IP-CIDR,188.202.0.0/16,DIRECT
 IP-CIDR,10.0.0.0/8,DIRECT
 IP-CIDR,172.16.0.0/12,DIRECT
 IP-CIDR,127.0.0.0/8,DIRECT
+
+{{ad}}
 
 FINAL,proxy
